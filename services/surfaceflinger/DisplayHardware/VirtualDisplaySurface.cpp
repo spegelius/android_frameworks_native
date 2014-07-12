@@ -407,7 +407,7 @@ status_t VirtualDisplaySurface::queueBuffer(int pslot,
         uint32_t transform;
         bool async;
         input.deflate(&timestamp, &isAutoTimestamp, &crop, &scalingMode,
-                &transform, &async, &mFbFence);
+               &transform, &async, &mFbFence);
 
         mFbProducerSlot = pslot;
         mOutputFence = mFbFence;
@@ -445,6 +445,10 @@ status_t VirtualDisplaySurface::connect(const sp<IBinder>& token,
 
 status_t VirtualDisplaySurface::disconnect(int api) {
     return mSource[SOURCE_SINK]->disconnect(api);
+}
+
+status_t VirtualDisplaySurface::setBuffersSize(int size) {
+   return mSource[SOURCE_SINK]->setBuffersSize(size);
 }
 
 void VirtualDisplaySurface::updateQueueBufferOutput(
