@@ -32,6 +32,9 @@ static struct {
     { AID_MEDIA, "media.player" },
     { AID_MEDIA, "media.camera" },
     { AID_MEDIA, "media.audio_policy" },
+#ifdef SECTVOUT
+    { AID_MEDIA, "SecTVOutService" },
+#endif
     { AID_DRM,   "drm.drmManager" },
     { AID_NFC,   "nfc" },
     { AID_BLUETOOTH, "bluetooth" },
@@ -48,6 +51,7 @@ static struct {
     { AID_MEDIA, "common_time.clock" },
     { AID_MEDIA, "common_time.config" },
     { AID_KEYSTORE, "android.security.keystore" },
+    { AID_MEDIA, "listen.service" }
 };
 
 void *svcmgr_handle;
